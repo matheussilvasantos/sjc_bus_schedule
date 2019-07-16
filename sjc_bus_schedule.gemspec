@@ -4,7 +4,7 @@ require "sjc_bus_schedule/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "sjc_bus_schedule"
-  spec.version       = SjcBusSchedule::VERSION
+  spec.version       = SJCBusSchedule::VERSION
   spec.authors       = ["Matheus Silva Santos de Oliveira"]
   spec.email         = ["oliveira.matheussilvasantos@gmail.com"]
 
@@ -29,4 +29,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "byebug", "~> 11.0.1"
+
+  spec.add_dependency "httparty", "~> 0.17.0"
+  spec.add_dependency "nokogiri", "~> 1.10.3"
 end

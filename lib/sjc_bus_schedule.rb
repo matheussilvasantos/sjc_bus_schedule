@@ -1,6 +1,14 @@
-require "sjc_bus_schedule/version"
+# frozen_string_literal: true
 
-module SjcBusSchedule
-  class Error < StandardError; end
-  # Your code goes here...
+require "sjc_bus_schedule/version"
+require "sjc_bus_schedule/crawler"
+
+module SJCBusSchedule
+  def self.find_by(query)
+    Crawler.new(query: query).process
+  end
+
+  def self.all
+    Crawler.new.process
+  end
 end
