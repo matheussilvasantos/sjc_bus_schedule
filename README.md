@@ -41,7 +41,7 @@ SJCBusSchedule.all
 # => [#<SJCBusSchedule::Bus:0x0000559b884e35a8 ...]
 ```
 
-### The response
+### Models
 
 #### SJCBusSchedule::Bus
 
