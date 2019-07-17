@@ -1,8 +1,7 @@
-# SjcBusSchedule
+# SJCBusSchedule
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sjc_bus_schedule`. To experiment with that code, run `bin/console` for an interactive prompt.
+Crawler that gets the bus schedules from the official website.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,7 +21,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Searching for a bus
+
+```ruby
+SJCBusSchedule.find_by(number: 101)
+# => [#<SJCBusSchedule::Bus:0x0000559b884e35a8 @number="101", @name="REPRESA / TERMINAL CENTRAL (RADIAL) O.S.O 41", ...]
+
+SJCBusSchedule.find_by(name: "Represa")
+# => [#<SJCBusSchedule::Bus:0x0000559b884e35a8 @number="101", @name="REPRESA / TERMINAL CENTRAL (RADIAL) O.S.O 41", ...]
+
+SJCBusSchedule.find_by(itinerary: "São João")
+# => [#<SJCBusSchedule::Bus:0x000055f98013a0e0 @number="111", @name="VALE DOS PINHEIROS / MONTE CASTELO (CIRCULAR NO MONTE CASTELO) O.S.O. 31", ...]
+```
+
+### Getting all buses
+
+```ruby
+SJCBusSchedule.all
+# => [#<SJCBusSchedule::Bus:0x0000559b884e35a8 ...]
+```
+
+### The response
+
+#### SJCBusSchedule::Bus
+
+```ruby
+bus.number # => "101"
+bus.name # => "101"
+bus.direction # => "REPRESA / TERMINAL CENTRAL"
+bus.itinerary # => ["BAIRRO RIO DAS COBRAS", "ESTR. JUCA CARVALHO", ...]
+bus.note # => "-"
+bus.schedules # => [#<SJCBusSchedule::Schedule:0x00005592d1dde0a0 @period="De segunda-feira a sexta-feira", ...]
+```
+
+#### SJCBusSchedule::Schedule
+
+```ruby
+schedule.period # => "De segunda-feira a sexta-feira"
+schedule.hours # => ["05:20(1)", "09:50(3)", "14:15(3)", "18:45(6)", ...]
+schedule.references # => ["(1) SANTO AGOSTINHO DE CIMA - VILA PAIVA", "(2) GUIRRA - PAÇO MUNICIPAL", ...]
+```
 
 ## Development
 
