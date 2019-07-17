@@ -60,7 +60,7 @@ class SJCBusSchedule::Crawler
     )
   end
 
-  def build_schedules(schedules_parser: schedules_parser)
+  def build_schedules(schedules_parser:)
     schedules_parser.schedules.map do |schedule|
       SJCBusSchedule::Schedule.new(
         period: schedule[:period],
