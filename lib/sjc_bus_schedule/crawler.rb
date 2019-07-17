@@ -13,6 +13,7 @@ class SJCBusSchedule::Crawler
 
   def initialize(http: HTTParty, query: { number: "" })
     @http = http
+    validate_filter(query.keys.first)
     set_url(*query.first)
   end
 
@@ -35,6 +36,10 @@ class SJCBusSchedule::Crawler
   end
 
   private
+
+  def validate_filter(filter)
+    raise ArgumentError, "valid filters: number, name, and itinerary" if FILTERS[filter].nil?
+  end
 
   def set_url(filter, query)
     @url = "#{BASE_URL}?acao=p&opcao=#{FILTERS[filter]}&txt=#{URI.encode(query.to_s)}"
