@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["oliveira.matheussilvasantos@gmail.com"]
 
   spec.summary       = %q{Extract bus schedule from SJC website}
-  spec.description   = %q{Make life easy for who wants to get the bus schedule from SJC website}
+  spec.description   = %q{Makes life easy for who wants to get the bus schedule from SJC website}
   spec.homepage      = "https://github.com/matheussilvasantos/sjc_bus_schedule"
   spec.license       = "MIT"
 
