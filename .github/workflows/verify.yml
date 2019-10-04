@@ -16,13 +16,5 @@ jobs:
         run: |
           gem install bundler
           bundle install
-      - name: Run Rubocop
-        run: bin/rubocop
-
-      - name: Run Bundler Audit
-        run: bin/bundler-audit --update
-      - name: Run Brakeman
-        run: bin/brakeman -q -w2
-
       - name: Run tests
-        run: bin/rspec
+        run: bundle exec rspec
