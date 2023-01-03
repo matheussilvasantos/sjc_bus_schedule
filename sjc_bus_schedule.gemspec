@@ -33,6 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock", "~> 3.6.0"
   spec.add_development_dependency "byebug", "~> 11.0.1"
 
-  spec.add_dependency "httparty", "~> 0.17.0"
+  spec.add_dependency "httparty", ">= 0.17", "< 0.22"
   spec.add_dependency "nokogiri", "~> 1.10"
 end
